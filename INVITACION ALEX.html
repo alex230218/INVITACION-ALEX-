@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños Alejandro CR7</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes: Russo One (Deportiva) y Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Librería de Confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        .font-sport {
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Contenedor de la Imagen del Usuario */
+        .image-container {
+            width: 100%;
+            height: 550px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Efecto Papel Rasgado Mejorado */
+        .torn-paper {
+            background-color: white;
+            position: relative;
+            padding: 3rem 1.5rem 2rem;
+            clip-path: polygon(
+                0% 30px, 4% 5px, 8% 25px, 12% 0px, 16% 20px, 20% 5px, 24% 25px, 28% 0px, 32% 20px, 36% 5px, 40% 25px, 44% 0px, 48% 20px, 52% 5px, 56% 25px, 60% 0px, 64% 20px, 68% 5px, 72% 25px, 76% 0px, 80% 20px, 84% 5px, 88% 25px, 92% 0px, 96% 20px, 100% 5px,
+                100% 100%, 0% 100%
+            );
+            margin-top: -40px;
+            z-index: 20;
+        }
+
+        /* Círculo del número 8 estilo "Pincelada" */
+        .number-badge {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 110px;
+            height: 110px;
+            background: #991b1b;
+            border: 5px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            z-index: 30;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            box-shadow: 0 6px 0 #052e16;
+            transition: all 0.1s;
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #052e16;
+        }
+
+        .stadium-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl relative">
+        
+        <!-- CABECERA CON LA IMAGEN SUBIDA POR EL USUARIO -->
+        <div class="image-container">
+            <!-- Usamos la imagen proporcionada por el usuario -->
+            <img src="https://api.typedream.com/v1/image/extract?url=uploaded:WhatsApp%20Image%202026-02-07%20at%2011.42.35%20AM.jpeg-a9be59f1-e340-41f4-89c5-1588c1e1a99a" 
+                 alt="Invitación Alejandro" 
+                 class="main-img">
+            <div class="stadium-overlay"></div>
+        </div>
+
+        <!-- CONTENIDO DE LA INVITACIÓN -->
+        <div class="torn-paper">
+            
+            <!-- BADGE DEL NÚMERO 8 -->
+            <div class="number-badge">
+                <span class="font-sport text-6xl text-white">8</span>
+            </div>
+
+            <div class="text-center space-y-6">
+                <h2 class="text-3xl font-sport text-red-700 uppercase italic">
+                    ¡El Gran Partido!
+                </h2>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-center gap-2 text-2xl font-bold text-slate-800">
+                        <span>📅</span>
+                        <span>22 DE FEBRERO</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-2xl font-bold text-slate-800">
+                        <span>⏰</span>
+                        <span>11:00 AM</span>
+                    </div>
+                    <div class="mt-4 p-3 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Localidad</p>
+                        <p class="text-2xl font-sport text-blue-900">AGUA CALIENTE</p>
+                    </div>
+                </div>
+
+                <!-- BOTÓN DE ACCIÓN -->
+                <div class="pt-6 pb-4">
+                    <button id="siuButton" class="btn-whatsapp w-full py-5 rounded-2xl text-white font-sport text-xl flex items-center justify-center gap-3">
+                        <span>CONFIRMAR ASISTENCIA</span>
+                        <span class="text-2xl">⚽</span>
+                    </button>
+                    <p class="text-[10px] mt-4 font-bold text-slate-400 tracking-[0.2em] uppercase">
+                        Presiona para el grito de gol
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <div class="bg-red-800 py-3 text-center">
+            <p class="text-white text-[10px] font-bold tracking-widest opacity-80 uppercase">
+                Party Zas . com
+            </p>
+        </div>
+    </div>
+
+    <!-- ELEMENTO DE AUDIO -->
+    <audio id="siuAudio" src="https://www.myinstants.com/media/sounds/siu.mp3" preload="auto"></audio>
+
+    <script>
+        const button = document.getElementById('siuButton');
+        const audio = document.getElementById('siuAudio');
+
+        // --- CONFIGURACIÓN DE WHATSAPP ---
+        const MI_NUMERO = "3326988385"; // Tu número ya configurado
+        const MENSAJE_WS = "¡Hola! Confirmo mi asistencia al cumpleaños de Alejandro. ¡Siiuuuuu! ⚽🔥";
+
+        button.addEventListener('click', () => {
+            // 1. Sonido SIU
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+
+            // 2. Animación Visual del Botón
+            const originalHTML = button.innerHTML;
+            button.innerHTML = "<span>¡SIIUUUUUUUU!</span>";
+            button.style.background = "#991b1b";
+
+            // 3. Explosión de Confeti
+            const duration = 2500;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ef4444', '#16a34a', '#fbce07']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ef4444', '#16a34a', '#fbce07']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            // 4. Redirección a WhatsApp
+            setTimeout(() => {
+                const waUrl = `https://wa.me/${MI_NUMERO}?text=${encodeURIComponent(MENSAJE_WS)}`;
+                window.open(waUrl, '_blank');
+                
+                // Resetear botón
+                button.innerHTML = originalHTML;
+                button.style.background = "";
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
